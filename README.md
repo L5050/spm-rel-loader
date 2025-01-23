@@ -1,6 +1,6 @@
 # Disclaimer
 
-Very little of this code is actually my own: this is a fork of SeelyCT's rel loader but merged with his spm-headers library. The purpose of this repo is to have a rel mod template ready at all times if I need it and so that I can help add things to the library if needed. Please take a look at [Seeky's original repo](https://github.com/SeekyCt/spm-rel-loader) before using this.
+Very little of this code is actually my own: this is a fork of SeekyCT's rel loader but merged with his spm-headers library. The purpose of this repo is to have a rel mod template ready at all times if I need it and so that I can help add things to the library if needed. Please take a look at [Seeky's original repo](https://github.com/SeekyCt/spm-rel-loader) before using this.
 
 # Custom Rel Loader for Super Paper Mario
 

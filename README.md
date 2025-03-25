@@ -17,7 +17,9 @@ To change the target for the loader, edit the definitions of REGION ('e' for eu,
 ## Contents
   * loader: Gecko code to load and run a custom rel file in Super Paper Mario
   * rel: Framework for writing code on-top of existing code in Super Paper Mario
-  * elf2rel: Convert from ELF file to REL file
+
+## Requirements
+  * pyelf2rel: a python package for converting a .elf file to a loadable .rel file
 
 ## Credits
   * **PistonMiner** and **Zephiles** for their work on the original TTYD rel loader this is based off of.

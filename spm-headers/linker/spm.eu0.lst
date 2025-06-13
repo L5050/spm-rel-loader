@@ -1,6 +1,7 @@
 /* OS Globals */
 
-800000e4:currentThread
+800000dc:OS_THREAD_QUEUE
+800000e4:OS_CURRENT_THREAD
 800030c8:firstRel
 800030cc:lastRel
 // more
@@ -60,6 +61,7 @@
 8003f730:acIsRunning
 8003f780:acNameToPtr
 8003f818:acMsgDisp
+80406ed8:acdrv_acDefs
 
 // animdrv.c
 8004249c:animPoseEntry
@@ -106,6 +108,7 @@
 
 // hitdrv.c
 8006f920:hitNameToPtr
+8006bac0:hitDelete
 // more
 
 // hitdrv.c
@@ -118,7 +121,13 @@
 
 // icondrv.c
 800721dc:iconReInit
+80073980:iconGX
 800731b0:iconDispGx
+800721f4:iconMain
+80072710:iconEntry
+80072cdc:iconDisp
+80073444:iconDispGxCol
+// sdata
 805adfd0:icondrv_wp
 // more
 
@@ -141,6 +150,7 @@
 // more
 
 // mapdrv.c
+8007f1dc:mapGetWork
 8008c440:mapObjFlagOn
 8008cf30:mapGrpFlagOn
 8008d2fc:mapGrpFlagOff
@@ -159,12 +169,14 @@
 
 // eff_nice.c
 800CC01C:effNiceEntry
+800cc1a0:effMainFunc
 
 // evt_cam.c
 800dff20:evt_cam3d_evt_zoom_in
 800e0430:evt_cam_zoom_to_coords
 800e04fc:evt_cam_look_at_door
 800dfe08:evt_cam_shake
+800e01f8:func_800e01f8
 
 // evt_snd.c
 800d2148:evt_snd_bgmon
@@ -284,8 +296,15 @@
 800e0ca4:evt_run_case_evt
 
 // evt_fairy.c
+800e7404:evt_fairy_all_enter_run_mode1
+800e7458:evt_fairy_all_enter_run_mode2
+800e7620:evt_fairy_get_pos
+800e7d88:evt_fairy_fly_to
+800e86dc:evt_fairy_set_anim
+800e8748:evt_fairy_wait_anim_end
 800e8214:evt_fairy_flag_onoff
 800e84e4:evt_fairy_reset
+8011f45c:func_8011f45c
 // more
 
 // evt_guide.c
@@ -333,10 +352,12 @@
 800f0074:evt_mario_face_coords
 800f0304:evt_mario_walk_to
 800f046c:evt_mario_pos_change
-800f0d58:evt_mario_jump_to
 800f05b0:func_800f05b0
+800f0d58:evt_mario_jump_to
+800f119c:func_800f119c
 800f1954:evt_mario_set_pose
 800F19C0:evt_mario_wait_anim
+800f1a4c:func_800f1a4c
 800f2450:evt_mario_fairy_reset
 800f25b0:evt_mario_set_gravity
 800f2f68:evt_mario_set_anim_change_handler
@@ -347,7 +368,11 @@
 800f39e4:evt_mobj_get_position
 800f3e34:evt_mobj_wait_animation_end
 800f3608:evt_mobj_delete
+800f36b0:evt_mobj_hit_onoff
 800f380c:evt_mobj_flag_onoff
+800f3a88:evt_mobj_set_position
+800f3b90:evt_mobj_set_scale
+800f3c98:evt_mobj_set_rotation
 800f5ad8:evt_mobj_zyo
 800f61ac:evt_mobj_thako
 800f6440:evt_mobj_kan
@@ -382,7 +407,7 @@
 800fe21c:evt_npc_set_position
 800fe668:evt_npc_rotate
 800fe92c:func_800fe92c
-800ff470:evt_npc_set_rgba
+800ff470:evt_npc_set_color
 800ffbd8:evt_npc_walk_to
 801006fc:evt_npc_arc_to
 801004c0:evt_npc_jump_to
@@ -396,10 +421,12 @@
 8010330c:evt_npc_get_cur_anim
 80103410:evt_npc_wait_anim_end
 8010368c:evt_npc_flag8_onoff
+80103718:evt_npc_flagC_onoff
 801039b8:evt_npc_animflag_onoff
 80103dbc:evt_npc_get_unitwork
 80103ea8:evt_npc_set_unitwork
 80104694:evt_npc_set_move_mode
+80104084:evt_npc_set_partswork
 801049ec:func_801049ec
 80104a3c:func_80104a3c
 80104c94:evt_npc_set_property
@@ -427,11 +454,17 @@
 801093E0:evt_npc_wait_axis_movement_unit_end
 80109548:evt_npc_set_thoreau_override
 80109900:marioLuigiNpcDispCb
+80109d20:oChunksNpcDispCb
 80109da0:evt_npc_set_disp_callback
 8010a418:evt_npc_wait_for
+8010a37c:evt_npc_set_animpose_disp_callback
 8010a910:evt_npc_teleport_effect
 8010be80:evt_npc_tribe_agb_async
-801e59c4:evt_npc_dimen_determine_move_pos
+801f0d30:func_801f0d30
+801f1880:func_801f1880
+801f2344:func_801f2344
+801f2af8:func_801f2af8
+801f2664:func_801f2664
 802154fc:func_802154fc
 80215514:func_80215514
 80215540:func_80215540
@@ -467,6 +500,7 @@
 8010c8e8:evt_pouch_set_coins
 8010c918:evt_pouch_get_coins
 8010c9c4:evt_pouch_check_have_item
+8010c994:evt_pouch_add_item
 8010CA18:evt_pouch_remove_item
 8010cb60:evt_pouch_set_pixl_selected
 8010cdd4:evt_pouch_set_level
@@ -558,6 +592,7 @@
 // more
 
 // seq_title.c
+8017b250:seq_titleMain
 8017bc4c:getNextDanMapname
 // more
 
@@ -573,6 +608,13 @@
 8017c084:seqGetSeq
 // data
 80512360:seqWork
+
+//seq_load_sub.c
+// text
+8017d1ac:loadMain
+// data
+805ae0d0:seq_load_sub_wp
+
 
 // pausewin.c
 // text
@@ -604,9 +646,10 @@
 // system.c
 8019d150:rand
 8019d254:irand
+8019c508:getSpmarioDVDRoot
 8019c54c:__assert2
-8019cf84:qqsort
 8019c688:distABf
+8019cf84:qqsort
 // more
 
 // debug.c
@@ -675,7 +718,7 @@
 801a62f0:__memFree
 801a6e34:__dl__FPv
 // data
-8042a408:size_table
+8042a408:memory_size_table
 // sdata
 805ae168:memory_wp
 805ae16c:memory_swp
@@ -730,6 +773,7 @@
 801b33a0:throwDamage
 801b6430:npcEntry
 801b6f2c:npcNameToPtr
+801b6fd4:npcNameToPtr_NoAssert
 801b7064:npcDelete
 801be198:npcEntryFromTemplate
 801bf7a0:npcEntryFromSetupEnemy
@@ -754,6 +798,7 @@
 // npc_dimeen_l.c
 // text
 801084fc:npc_dimeen_l_box_deal_damage
+801e59c4:npc_dimen_determine_move_pos
 // data
 80457140:dimen_unk_fight_script_1
 80457190:dimen_unk_fight_script_2
@@ -780,7 +825,12 @@
 8023c93c:spsndBGMOn
 8023c948:spsndBGMOff_f_d
 8023d1b0:spsndCheckBgmPlaying
+80532fe0:spsndBgmPlayers
 // more
+
+// snd.cpp
+8030019c:Skip
+8030a548:UpdateLoadingBlockIndex
 
 // relmgr.c
 // text
@@ -797,6 +847,8 @@
 8023edcc:nandUpdateSave
 8023efe0:nandLoadSave
 // more
+// data
+805ae1b0:nandmgr_wp
 
 // homebuttondrv.c
 // text
@@ -813,7 +865,6 @@
 // runtime.c
 802560a4:__div2i
 // more
-
 // MSL_C.PPCEABI.bare.H.a
 // printf.c
 8025cf40:vsprintf
@@ -824,7 +875,6 @@
 // string.c
 8025ec04:strstr
 // more
-
 // string.c
 8025a874:memmove
 8025a998:memcmp
@@ -836,10 +886,8 @@
 8025ebd4:strchr
 80267018:strlen
 // more
-
 // s_cos.c
 80263ea0:cos
-
 // s_sin.c
 802642ac:sin
 
@@ -888,16 +936,23 @@
 80276198:OSRestart
 // more
 // OSThread.c
+80277154:OSGetCurrentThread
 802776c0:OSYieldThread
 802776fc:OSCreateThread
+80277968:OSExitThread
+80277a4c:OSCancelThread
 80277d64:OSResumeThread
 80277ffc:OSSuspendThread
 80278190:OSSleepThread
 8027827c:OSWakeupThread
 // more
-// OSTime
+// OSTime.c
 80278370:OSGetTime
 // more
+// OSMutex.c
+80275a50:OSInitMutex
+80275a88:OSLockMutex
+80275b64:OSUnlockMutex
 
 // mtx.a
 // mtx.c
@@ -952,6 +1007,8 @@
 802901f8:GXSetCullMode
 802912f4:GXSetNumChans
 80291318:GXSetChanCtrl
+802915a0:GXInitTexObj
+802917f4:GXInitTexObjLOD
 802929d4:GXSetTevOp
 80292e10:GXSetAlphaCompare
 80292ed4:GXSetTevOrder
@@ -1036,6 +1093,7 @@
 
 // tpl.c
 802e30ec:TPLBind
+802e3220:TPLGetGXTexObjFromPalette
 // more
 
 /* Rel */
@@ -1054,8 +1112,7 @@
 // more
 
 // ta3_02
-//todo: convert to rel address
-80d7ac80:tree_block_trigger
+1,5,85b00:tree_block_trigger
 // more
 
 // sp4_13.c
@@ -1196,3 +1253,6 @@
 1,5,d2820:sammerDefsCh6
 1,5,d2cd0:sammerDefsEndgame
 // more
+
+// mi4.c
+1,1,cac4:mi4MimiHolographicEffect

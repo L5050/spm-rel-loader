@@ -41,7 +41,9 @@ UNKNOWN_FUNCTION(func_800ff100);
 UNKNOWN_FUNCTION(func_800ff1cc);
 UNKNOWN_FUNCTION(func_800ff2a8);
 UNKNOWN_FUNCTION(func_800ff3ec);
-EVT_DECLARE_USER_FUNC(evt_npc_set_rgba, 5);
+
+EVT_DECLARE_USER_FUNC(evt_npc_set_color, 5);
+
 UNKNOWN_FUNCTION(func_800ff5a4);
 UNKNOWN_FUNCTION(func_800ff6f4);
 UNKNOWN_FUNCTION(func_800ff86c);
@@ -100,7 +102,7 @@ UNKNOWN_FUNCTION(func_80103574);
 // evt_npc_flag8_onoff(const char * instanceName, bool on, u32 mask)
 EVT_DECLARE_USER_FUNC(evt_npc_flag8_onoff, 3)
 
-UNKNOWN_FUNCTION(evt_npc_flagC_onoff);
+EVT_UNKNOWN_USER_FUNC(evt_npc_flagC_onoff);
 EVT_UNKNOWN_USER_FUNC(evt_npc_flag46C_onoff);
 UNKNOWN_FUNCTION(evt_npc_flag10_onoff);
 UNKNOWN_FUNCTION(evt_npc_part_flag_onoff);
@@ -121,7 +123,7 @@ EVT_DECLARE_USER_FUNC(evt_npc_get_unitwork, 3);
 EVT_DECLARE_USER_FUNC(evt_npc_set_unitwork, 3)
 
 UNKNOWN_FUNCTION(evt_npc_get_partswork);
-UNKNOWN_FUNCTION(evt_npc_set_partswork);
+EVT_UNKNOWN_USER_FUNC(evt_npc_set_partswork);
 UNKNOWN_FUNCTION(func_80104174);
 UNKNOWN_FUNCTION(func_80104230);
 UNKNOWN_FUNCTION(func_80104304);
@@ -291,7 +293,8 @@ UNKNOWN_FUNCTION(func_80109a00);
 UNKNOWN_FUNCTION(func_80109b10);
 UNKNOWN_FUNCTION(func_80109c20);
 UNKNOWN_FUNCTION(func_80109ca0);
-UNKNOWN_FUNCTION(func_80109d20);
+
+s32 oChunksNpcDispCb(void *param_1, s32 param_2);
 
 EVT_UNKNOWN_USER_FUNC(evt_npc_set_disp_callback);
 
@@ -306,7 +309,8 @@ UNKNOWN_FUNCTION(func_8010a1c4);
 UNKNOWN_FUNCTION(func_8010a1e8);
 UNKNOWN_FUNCTION(func_8010a298);
 UNKNOWN_FUNCTION(evt_npc_try_catch_card);
-UNKNOWN_FUNCTION(func_8010a37c);
+
+EVT_DECLARE_USER_FUNC(evt_npc_set_animpose_disp_callback, 3);
 
 // evt_npc_wait_for(const char * name, s32 timeInMiliseconds)
 EVT_DECLARE_USER_FUNC(evt_npc_wait_for, 2)
@@ -343,7 +347,11 @@ UNKNOWN_FUNCTION(func_8010c2e0);
 UNKNOWN_FUNCTION(func_8010c35c);
 UNKNOWN_FUNCTION(func_8010c3e8);
 UNKNOWN_FUNCTION(func_8010c440);
-EVT_UNKNOWN_USER_FUNC(evt_npc_dimen_determine_move_pos);
+EVT_UNKNOWN_USER_FUNC(func_801f0d30)
+EVT_UNKNOWN_USER_FUNC(func_801f1880)
+EVT_UNKNOWN_USER_FUNC(func_801f2344)
+EVT_UNKNOWN_USER_FUNC(func_801f2af8)
+EVT_UNKNOWN_USER_FUNC(func_801f2664)
 
 EVT_UNKNOWN_USER_FUNC(func_802154fc)
 EVT_UNKNOWN_USER_FUNC(func_80215514)

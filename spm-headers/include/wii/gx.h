@@ -16,6 +16,13 @@ typedef struct
 {
     u8 r, g, b, a;
 } GXColor;
+SIZE_ASSERT(GXColor, 0x4)
+
+typedef struct
+{
+    s16 r, g, b, a;
+} GXColorS10;
+SIZE_ASSERT(GXColorS10, 0x8)
 
 typedef struct
 {
@@ -28,6 +35,13 @@ typedef struct
 /* 0x0 */ u8 unknown_0x0[0x20 - 0x0];
 } GXTexObj;
 SIZE_ASSERT(GXTexObj, 0x20)
+
+
+typedef enum
+{
+/* 0x0 */ GX_PERSPECTIVE,
+/* 0x1 */ GX_ORTHOGRAPHIC
+} GXProjectionType;
 
 // Parameters from libogc's gx.h
 
@@ -128,9 +142,11 @@ void GXSetNumChans(u8 num);
 void GXSetChanCtrl(s32 chan, u8 enable, u8 ambsrc, u8 matsrc, u8 litmask, u8 diff_fn, u8 attn_fn);
 UNKNOWN_FUNCTION(GXGetTexBufferSize);
 UNKNOWN_FUNCTION(__GetImageTileCount);
-UNKNOWN_FUNCTION(GXInitTexObj);
+
+void GXInitTexObj(GXTexObj *obj, void * image, u32 width, u32 height, u32 format, u32 wrap_s, u32 wrap_t, s32 mipmap);
 UNKNOWN_FUNCTION(GXInitTexObjCI);
-UNKNOWN_FUNCTION(GXInitTexObjLOD);
+void GXInitTexObjLOD(f32, f32, f32, GXTexObj *, s32, s32, u32, u32, u32);
+
 void GXInitTexObjData(GXTexObj * texObj, void * image);
 UNKNOWN_FUNCTION(GXInitTexObjWrapMode);
 UNKNOWN_FUNCTION(GXInitTexObjTlut);
@@ -200,7 +216,7 @@ UNKNOWN_FUNCTION(GXEndDisplayList);
 UNKNOWN_FUNCTION(GXCallDisplayList);
 UNKNOWN_FUNCTION(GXProject);
 UNKNOWN_FUNCTION(__GXSetProjection);
-void GXSetProjection(Mtx44 * mtx, u32 type);
+void GXSetProjection(Mtx44 mtx, GXProjectionType type);
 UNKNOWN_FUNCTION(GXSetProjectionv);
 UNKNOWN_FUNCTION(GXGetProjectionv);
 void GXLoadPosMtxImm(Mtx34 * mtx, u32 pnidx);

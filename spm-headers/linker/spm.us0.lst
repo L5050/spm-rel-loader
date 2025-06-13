@@ -1,5 +1,5 @@
 // OS Globals
-800000e4:currentThread
+800000e4:OS_CURRENT_THREAD
 800030c8:firstRel
 800030cc:lastRel
 
@@ -127,7 +127,7 @@
 803E8DC8:seq_data
 801A5634:__memAlloc
 801A56B8:__memFree
-803EAA08:size_table
+803EAA08:memory_size_table
 8056D188:memory_wp
 8056D18C:memory_swp
 802350B8:wpadGetButtonsHeld
@@ -674,14 +674,13 @@
 80104BC4:evt_npc_finish_flip_instant
 80104D28:evt_npc_flip_to
 80104D88:evt_npc_flip
-801E41A0:evt_npc_dimen_determine_move_pos
+801E41A0:npc_dimen_determine_move_pos
 80417470:dimen_unk_fight_script_1
 804174C0:dimen_unk_fight_script_2
 80419300:dimen_unk_fight_script_3
 8019B804:distABf
 801046AC:evt_npc_get_property
 8021BA80:ninjoe_bomb_calc_chance
-80D4ACD0:tree_block_trigger
 801CA9EC:npcDamageMario
 8056CFF0:icondrv_wp
 804A2EE8:evt_memcard_save
@@ -695,7 +694,7 @@
 800ECD6C:evt_item_flag_onoff
 800ECFC0:evt_item_wait_collected
 800EFE10:evt_mario_face_npc
-800FEAC4:evt_npc_set_rgba
+800FEAC4:evt_npc_set_color
 8010BED4:evt_pouch_get_coins
 8010BF20:evt_pouch_add_coins
 8016192C:boomerFuseMain
@@ -718,6 +717,9 @@
 802224D0:func_80224874
 80222FDC:func_80225380
 801C5568:npcTakeDamage
+800FE584:evt_npc_set_scale
+801063D4:evt_npc_spawn_sammer_guy
+8021C8D4:ninjoe_thoreau_override
 
 // new to SPMMulti
 801796A4:seq_mapChangeInit
@@ -756,3 +758,40 @@
 8010C6AC:evt_seq_mapchange
 800E7388:evt_set_transition
 800DA2A4:evt_lbl
+
+// new to v10
+8017c500:loadMain
+8056d0f0:seq_load_sub_wp
+8056d1d0:nandmgr_wp
+80238af4:spsndSFXOn
+
+// new to SPM-RPG-Battles V3
+800E7580:evt_fairy_all_enter_run_mode1
+800E75D4:evt_fairy_all_enter_run_mode2
+800E7F04:evt_fairy_fly_to
+800E8858:evt_fairy_set_anim
+800E88C4:evt_fairy_wait_anim_end
+800F3400:evt_mobj_hit_onoff
+800F37D8:evt_mobj_set_position
+800F39E8:evt_mobj_set_rotation
+800F38E0:evt_mobj_set_scale
+8010999C:evt_npc_set_animpose_disp_callback
+8010BF50:evt_pouch_add_item
+800E03C8:func_800e01f8
+800F0FF4:func_800f119c
+800F18A4:func_800f1a4c
+801EF400:func_801f0d30
+801EFF50:func_801f1880
+801F1184:func_801f2af8
+801B53E8:npcEntry
+801B5F8C:npcNameToPtr_NoAssert
+80109340:oChunksNpcDispCb
+8056D1A8:npcdrv_wp
+1,1,c7e0:mi4MimiHolographicEffect
+8028EA24:GXInitTexObj
+8028EC78:GXInitTexObjLOD
+802E0318:TPLGetGXTexObjFromPalette
+8019B684:getSpmarioDVDRoot
+800725F8:iconEntry
+80073868:iconGX
+800720DC:iconMain

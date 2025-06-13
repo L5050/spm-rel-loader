@@ -1,5 +1,5 @@
 // OS Globals
-800000e4:currentThread
+800000e4:OS_CURRENT_THREAD
 800030c8:firstRel
 800030cc:lastRel
 
@@ -128,7 +128,7 @@
 803BE018:seq_data
 801A5624:__memAlloc
 801A56A8:__memFree
-803BFC68:size_table
+803BFC68:memory_size_table
 80542488:memory_wp
 8054248C:memory_swp
 80235060:wpadGetButtonsHeld
@@ -675,14 +675,13 @@
 80104BC4:evt_npc_finish_flip_instant
 80104D28:evt_npc_flip_to
 80104D88:evt_npc_flip
-801E4148:evt_npc_dimen_determine_move_pos
+801E4148:npc_dimen_determine_move_pos
 803EC6D0:dimen_unk_fight_script_1
 803EC720:dimen_unk_fight_script_2
 803EE560:dimen_unk_fight_script_3
 8019B7F4:distABf
 801046AC:evt_npc_get_property
 8021BA28:ninjoe_bomb_calc_chance
-80D65BF0:tree_block_trigger
 801CA994:npcDamageMario
 805422F0:icondrv_wp
 80478188:evt_memcard_save
@@ -709,6 +708,9 @@
 80222478:func_80224874
 80222F84:func_80225380
 801C5510:npcTakeDamage
+800FE584:evt_npc_set_scale
+801063D4:evt_npc_spawn_sammer_guy
+8021C87C:ninjoe_thoreau_override
 
 // new to SPMMulti
 80179694:seq_mapChangeInit
@@ -747,3 +749,40 @@
 8010C6AC:evt_seq_mapchange
 800E7388:evt_set_transition
 800DA2A4:evt_lbl
+
+// new to v10
+805423F0:seq_load_sub_wp
+805424D0:nandmgr_wp
+80238A9C:spsndSFXOn
+8017C4F0:loadMain
+
+// new to SPM-RPG-Battles V3
+800E7580:evt_fairy_all_enter_run_mode1
+800E75D4:evt_fairy_all_enter_run_mode2
+800E7F04:evt_fairy_fly_to
+800E8858:evt_fairy_set_anim
+800E88C4:evt_fairy_wait_anim_end
+800F3400:evt_mobj_hit_onoff
+800F37D8:evt_mobj_set_position
+800F39E8:evt_mobj_set_rotation
+800F38E0:evt_mobj_set_scale
+8010999C:evt_npc_set_animpose_disp_callback
+8010BF50:evt_pouch_add_item
+800E03C8:func_800e01f8
+800F0FF4:func_800f119c
+800F18A4:func_800f1a4c
+801EF3A8:func_801f0d30
+801EFEF8:func_801f1880
+801F112C:func_801f2af8
+801B5390:npcEntry
+801B5F34:npcNameToPtr_NoAssert
+80109340:oChunksNpcDispCb
+805424A8:npcdrv_wp
+1,1,c7e0:mi4MimiHolographicEffect
+8028E9D4:GXInitTexObj
+8028EC28:GXInitTexObjLOD
+802E02C8:TPLGetGXTexObjFromPalette
+8019B674:getSpmarioDVDRoot
+800725F8:iconEntry
+80073868:iconGX
+800720DC:iconMain

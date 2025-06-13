@@ -46,7 +46,7 @@ namespace mod::tplpatch
 
   /*
   The iconpatch framework directly overrides normal uses of wicon.tpl (used for all items and many other icons) and points them to your very own custom TPL on the game's root directory.
-  You can name this file whatever you'd like, just make sure that the name in the #define down here matches with what you actually import into the game.
+  To make this library recognize your custom TPL, make sure to initialize tplpatch::iconPatch("filename") in void main() with the filename of your TPL sans .tpl.
   iconpatch automatically redirects all calls to wicon.tpl after a certain offset to your custom TPL.
 
   EXAMPLE:
@@ -56,7 +56,7 @@ namespace mod::tplpatch
   Have fun!!!!
   */
 
-  char *TPLPatchIconTPLName = nullptr;           // You can and should change this to whatever you'd like!
+  char *TPLPatchIconTPLName = nullptr;           // This corresponds to the name of your custom TPL! i.e. 
   filemgr::FileEntry *TPLPatchIconTPL = nullptr; // Initializes the custom TPL pointer
 
   // These hook into vanilla icondrv functions right before they run.
@@ -136,9 +136,11 @@ namespace mod::tplpatch
   void iconPatch(char *iconFileName)
   {
     TPLPatchIconTPLName = iconFileName;
+
+    // Mods/libraries that hook into iconMain, iconEntry, or iconGX will likely conflict with this library. Please reach out to Yme if this is an issue for you.
     iconFuncPatch();
+
     // Mods/libraries that modify TPLGetGXTexObjFromPalette may conflict with this library. You're free to use/modify our rewritten function however you'd like for personal use, though!
     patch::hookFunction(wii::tpl::TPLGetGXTexObjFromPalette, TPLGetGXTexObjFromPaletteNew);
   }
-
 }

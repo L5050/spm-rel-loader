@@ -69,10 +69,10 @@ typedef struct _EvtEntry
                                              // this one is
 /* 0x074 */ union
             {
-                s32 tempS[3];
-                u32 tempU[3];
+                s32 tempS[8];
+                u32 tempU[8];
+                f32 tempF[8];
             }; // Temp values with meanings varying by instruction / user func
-/* 0x080 */ u8 unknown_0x80[0x94 - 0x80];
 /* 0x094 */ UserFunc * userFunc; // Function set & called by the user_func opcode
 /* 0x098 */ s32 lw[16]; // Local Work variables
 /* 0x0D8 */ u32 lf[3]; // Local Flag variables
@@ -102,7 +102,7 @@ typedef struct _EvtEntry
 /* 0x188 */ s32 msgPri;
 /* 0x18C */ u8 unknown_0x18c[0x198 - 0x18c];
 /* 0x198 */ EvtScriptCode * scriptStart; // Pointer to the start of this script
-/* 0x19C */ char * name; // debug thing, unused?
+/* 0x19C */ const char * name; // debug thing, unused?
 /* 0x1A0 */ void * pPrevInstruction; // Pointer to last instruction executed
 /* 0x1A4 */ u8 unknown_0x1a4[0x1a8 - 0x1a4];
 } EvtEntry;

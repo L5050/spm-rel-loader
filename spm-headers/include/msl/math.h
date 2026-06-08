@@ -22,9 +22,23 @@ double fmod(double numer, double denom);
 double sqrt(double x);
 #define sqrtf(x) ((f32)sqrt(x))
 
-#define fabs(x) __fabs(x)
-#define fabsf(x) __fabsf(x)
-#define abs(x) __abs(x)
+double pow(double base, double exponent);
+
+double floor(double x);
+
+#ifdef __MWERKS__
+    #define fabs(x) __fabs(x)
+    #define fabsf(x) __fabsf(x)
+    #define abs(x) __abs(x)
+#elif defined __GNU_C__
+    #define fabs(x) __builtin_fabs(x)
+    #define fabsf(x) __builtin_fabsf(x)
+    #define abs(x) __builtin_abs(x)
+#else
+    double fabs(double x);
+    float fabsf(float x);
+    int abs(int x);
+#endif
 
 double ceil(double x);
 #define ceilf(x) ((f32)ceil(x))

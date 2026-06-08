@@ -3,7 +3,7 @@
 800030c8:firstRel
 800030cc:lastRel
 
-// Automatically generated from spm.eu0.lst
+// Automatically generated from spm.eu0.lst 
 80004000:memcpy
 80004104:memset
 800293E4:mapDataPtr
@@ -292,7 +292,7 @@
 8010259C:evt_npc_entry
 80102694:func_80103054
 80102748:evt_npc_set_anim
-80103CD4:evt_npc_set_move_mode
+80103CD4:func_80104694
 80102CCC:evt_npc_flag8_onoff
 80102FF8:evt_npc_animflag_onoff
 801042D4:evt_npc_set_property
@@ -305,7 +305,7 @@
 801112F8:evt_shop_set_defs
 8014CB4C:pouchAddItem
 8014D148:pouchCheckHaveItem
-8017AFD8:getNextDanMapname
+8017AFD8:getDanMapName
 80183F64:pausewinEntry
 801843D4:pausewinMoveTo
 80184424:pausewinAppear
@@ -474,4 +474,12 @@
 805419D0:seq_load_sub_wp
 80541AB0:nandmgr_wp
 80239148:spsndSFXOn
-8017C538:loadMain
+8017C538:seq_load_sub_loadMain
+
+// 2025-09-27
+800677D8:fadeGetMapChangeInTransition
+800677E4:fadeGetMapChangeOutTransition
+80067804:fadeGetFadeOutLength
+80067810:fadeGetFadeInLength
+8006781C:fadeSetTransitionLengths
+80542128:fadedrv_wp

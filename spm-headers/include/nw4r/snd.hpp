@@ -23,7 +23,7 @@ SIZE_ASSERT(BasicPlayer, 0x11c)
 typedef struct __vt_BasicSound {
     u8 unknown_0x0[0x8 - 0x0];
     void* GetRuntimeTypeInfo;
-    void* __dt;
+    void* _dt;
     void* Update;
     void* StartPrepared;
     void* Stop;
@@ -52,7 +52,7 @@ typedef struct __vt_BasicSound {
 SIZE_ASSERT(__vt_BasicSound, 0x70)
 
 typedef struct { /* Size is uncertain */
-    struct __vt_BasicSound *__vt;
+    __vt_BasicSound *__vt;
     u8 unknown_0x4[0x67 - 0x4];
     bool isPaused; 
     u8 unknown_0x68[0x70 - 0x68];
@@ -63,8 +63,8 @@ SIZE_ASSERT(Snd_BasicSound, 0xd8)
 
 // TODO: these are c++ functions used in spmario.c
 
-extern UNKNOWN_FUNCTION(func_802f4d0c); // nw4r::snd::detail::AxManager::getInstance
-extern UNKNOWN_FUNCTION(func_802f54a0); // nw4r::snd::detail::AxManager::SetMasterVolume
+extern UNKNOWN_FUNCTION(func_802f4d0c) // nw4r::snd::detail::AxManager::getInstance
+extern UNKNOWN_FUNCTION(func_802f54a0) // nw4r::snd::detail::AxManager::SetMasterVolume
 
 void UpdateLoadingBlockIndex(BasicPlayer *player);
 void Skip(BasicPlayer *player, OffsetType type, s32 offset);
